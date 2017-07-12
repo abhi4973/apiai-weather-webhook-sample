@@ -76,7 +76,10 @@ def makeWebhookResult(data):
     location = channel.get('location')
     units = channel.get('units')
     if (location is None) or (item is None) or (units is None):
-        return {}
+        return {
+            "speech": "City not found",
+            "displayText": "City not found"
+        }
 
     condition = item.get('condition')
     if condition is None:
