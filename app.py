@@ -30,9 +30,20 @@ def webhook():
 
     res = json.dumps(res, indent=4)
     # print(res)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return r
+    return make_response(jsonify(results()))
+#     r = make_response(res)
+#     r.headers['Content-Type'] = 'application/json'
+#     return r
+
+def results():
+    # build a request object
+    req = request.get_json(force=True)
+
+    # fetch action from json
+    action = req.get('queryResult').get('action')
+
+    # return a fulfillment response
+    return {'fulfillmentText': 'This is a response from webhook.'}
 
 
 def processRequest(req):
