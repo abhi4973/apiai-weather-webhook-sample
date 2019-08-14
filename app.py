@@ -84,15 +84,15 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+    fullfillmentText = "Today in " + location.get('city') + ": " + condition.get('text') + \
              ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 
     print("Response:")
-    print(speech)
+    print(fullfillmentText)
 
     return {
-        "speech": speech,
-        "displayText": speech,
+        "speech": fullfillmentText,
+        "fullfillmentText": fullfillmentText,
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
