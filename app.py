@@ -30,7 +30,7 @@ def webhook():
 
 #     res = json.dumps(res, indent=4)
     # print(res)
-    res = make_response(jsonify(results()))
+    res = make_response(json.dumps(results()))
     print("result:" , res)
     return res
 #     r = make_response(res)
